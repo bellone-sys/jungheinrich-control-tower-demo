@@ -351,6 +351,17 @@
   transition: opacity 0.2s;
 }
 
+/* Disabled (not yet implemented) sidebar items — targets href="#" anchors */
+a.sidebar__item[href="#"] {
+  opacity: 0.38;
+  cursor: default;
+  pointer-events: none;
+  user-select: none;
+}
+a.sidebar__item[href="#"]:hover {
+  background: transparent !important;
+}
+
 /* Collapsed state: hide labels and badges */
 .app-sidebar.collapsed .sidebar__item-label { opacity: 0; pointer-events: none; }
 .app-sidebar.collapsed .sidebar__item-badge { opacity: 0; }
