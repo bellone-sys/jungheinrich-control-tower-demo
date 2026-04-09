@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Corrieri — JH Control Tower</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="jungheinrich.css" />
+  <link rel="stylesheet" href="app.css" />
+</head>
+<body class="app-body-wrap">
+
+  <!-- ════════════════════════════════════
+       HEADER
+  ═════════════════════════════════════ -->
+  <header class="app-header">
+    <button class="app-header__hamburger" id="hamburgerBtn" aria-label="Apri menu">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="index.html" class="app-header__logo">
+      <img src="logos/images.webp" alt="Jungheinrich" class="app-header__logo-icon">
+      <span class="app-header__logo-text">
+        <img src="logos/Jungheinrich-Logo.svg.png" alt="Jungheinrich" class="app-header__logo-wordmark">
+        <span class="app-header__logo-product">Control Tower</span>
+      </span>
+    </a>
+    <div class="app-header__center">
+      <span class="app-header__page-title">Anagrafica Corrieri</span>
+    </div>
+    <div class="app-header__actions">
+      <button class="app-header__icon-btn" aria-label="Cerca">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </button>
+      <button class="app-header__icon-btn" aria-label="Notifiche">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        <span class="app-header__notif-dot" aria-hidden="true"></span>
+      </button>
+      <div style="position:relative;">
+        <button class="app-header__avatar-btn" id="avatarBtn" aria-haspopup="true" aria-expanded="false">
+          <span class="app-header__avatar" aria-hidden="true">DU</span>
+          <span class="app-header__avatar-name">Demo User</span>
+          <svg class="app-header__avatar-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="app-header__dropdown" id="avatarDropdown" role="menu">
+          <div class="app-header__dropdown-header">
+            <span class="app-header__dropdown-name">Demo User</span>
+            <span class="app-header__dropdown-email">demo.user@jungheinrich.com</span>
+          </div>
+          <a href="#" class="app-header__dropdown-item" role="menuitem">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            Profilo
+          </a>
+          <a href="#" class="app-header__dropdown-item" role="menuitem">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+            Impostazioni
+          </a>
+          <a href="login.html" class="app-header__dropdown-item app-header__dropdown-item--danger" role="menuitem">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+            Esci
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <div class="app-layout">
+
+    <!-- ════════════════════════════════════
+         SIDEBAR
+    ═════════════════════════════════════ -->
+    <aside class="sidebar app-sidebar" id="sidebar" aria-label="Menu di navigazione">
+
+      <span class="sidebar__section-title">Principale</span>
+
+      <a href="dashboard.html" class="sidebar__item">
+        <span class="sidebar__item-icon" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        </span>
+        <span class="sidebar__item-label">Dashboard</span>
+      </a>
+
+      <a href="#" class="sidebar__item">
+        <span class="sidebar__item-icon" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 5v4h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </span>
+        <span class="sidebar__item-label">Spedizioni</span>
+        <span class="sidebar__item-badge">12</span>
+      </a>
+
+      <a href="#" class="sidebar__item">
+        <span class="sidebar__item-icon" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </span>
+        <span class="sidebar__item-label">Pianificazione</span>
+      </a>
+
+      <a href="corrieri.html" class="sidebar__item sidebar__item--active" aria-current="page">
+        <span class="sidebar__item-icon" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </span>
+        <span class="sidebar__item-label">Corrieri</span>
+      </a>
+
+      <span class="sidebar__section-title" style="margin-top:8px;">Analisi</span>
+
+      <a href="#" class="sidebar__item">
+        <span class="sidebar__item-icon" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        </span>
+        <span class="sidebar__item-label">Analytics</span>
+      </a>
+
+      <a href="#" class="sidebar__item">
+        <span class="sidebar__item-icon" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </span>
+        <span class="sidebar__item-label">Report</span>
+      </a>
+
+      <a href="#" class="sidebar__item">
+        <span class="sidebar__item-icon" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </span>
+        <span class="sidebar__item-label">Mappa live</span>
+      </a>
+
+      <span class="sidebar__section-title" style="margin-top:8px;">Sistema</span>
+
+      <a href="#" class="sidebar__item">
+        <span class="sidebar__item-icon" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+        </span>
+        <span class="sidebar__item-label">Impostazioni</span>
+      </a>
+
+      <button class="app-sidebar__toggle" id="sidebarToggle" aria-label="Riduci menu">
+        <svg class="app-sidebar__toggle-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        <span class="sidebar__item-label" style="font-size:0.75rem;">Riduci menu</span>
+      </button>
+    </aside>
+
+    <!-- ════════════════════════════════════
+         MAIN CONTENT
+    ═════════════════════════════════════ -->
+    <main class="app-main" id="appMain">
+      <div class="app-content">
+
+        <!-- Page header -->
+        <div class="dash-page-header">
+          <div>
+            <h1 class="dash-page-title">Corrieri</h1>
+            <p class="dash-page-subtitle" id="pageSubtitle">Caricamento in corso…</p>
+          </div>
+          <div class="dash-page-actions">
+            <button class="btn btn--ghost btn--sm" id="exportBtn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Esporta CSV
+            </button>
+            <button class="btn btn--primary btn--sm" id="newCorriereBtn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              Nuovo corriere
+            </button>
+          </div>
+        </div>
+
+        <!-- KPI strip -->
+        <div class="corrieri-kpi-strip" id="kpiStrip">
+          <div class="corrieri-kpi">
+            <span class="corrieri-kpi__value" id="kpiTotale">—</span>
+            <span class="corrieri-kpi__label">Totale</span>
+          </div>
+          <div class="corrieri-kpi">
+            <span class="corrieri-kpi__value corrieri-kpi__value--green" id="kpiAttivi">—</span>
+            <span class="corrieri-kpi__label">Attivi</span>
+          </div>
+          <div class="corrieri-kpi">
+            <span class="corrieri-kpi__value corrieri-kpi__value--red" id="kpiSospesi">—</span>
+            <span class="corrieri-kpi__label">Sospesi</span>
+          </div>
+          <div class="corrieri-kpi">
+            <span class="corrieri-kpi__value" id="kpiSpedMese">—</span>
+            <span class="corrieri-kpi__label">Sped./mese totali</span>
+          </div>
+          <div class="corrieri-kpi">
+            <span class="corrieri-kpi__value" id="kpiRatingMedio">—</span>
+            <span class="corrieri-kpi__label">Rating medio</span>
+          </div>
+        </div>
+
+        <!-- Table card -->
+        <div class="card" style="padding:0;overflow:hidden;">
+
+          <!-- Toolbar -->
+          <div class="corrieri-toolbar">
+            <div class="corrieri-search-wrap">
+              <svg class="corrieri-search__icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+              <input type="search" class="corrieri-search" id="searchInput"
+                     placeholder="Cerca per nome, codice, referente, città…"
+                     aria-label="Cerca corriere">
+            </div>
+            <div class="corrieri-filters">
+              <select class="corrieri-select" id="filterZona" aria-label="Filtra per zona">
+                <option value="">Tutte le zone</option>
+                <option value="Nord-Ovest">Nord-Ovest</option>
+                <option value="Nord-Est">Nord-Est</option>
+                <option value="Centro">Centro</option>
+                <option value="Sud">Sud</option>
+                <option value="Isole">Isole</option>
+                <option value="Nazionale">Nazionale</option>
+              </select>
+              <select class="corrieri-select" id="filterStato" aria-label="Filtra per stato">
+                <option value="">Tutti gli stati</option>
+                <option value="attivo">Attivo</option>
+                <option value="sospeso">Sospeso</option>
+              </select>
+              <select class="corrieri-select" id="filterServizio" aria-label="Filtra per servizio">
+                <option value="">Tutti i servizi</option>
+                <option value="Espresso">Espresso</option>
+                <option value="Standard">Standard</option>
+                <option value="Economy">Economy</option>
+                <option value="Gruppage">Gruppage</option>
+                <option value="ADR">ADR</option>
+              </select>
+              <button class="btn btn--ghost btn--sm" id="resetFiltersBtn" style="display:none;">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                Reset filtri
+              </button>
+            </div>
+          </div>
+
+          <!-- Table -->
+          <div class="table-wrapper" style="border-radius:0;border:none;border-top:1px solid var(--jh-light-grey);">
+            <table class="table" id="corrieriTable" aria-label="Elenco corrieri">
+              <thead>
+                <tr>
+                  <th scope="col" class="th-sortable" data-col="codice">
+                    Codice <span class="sort-icon" aria-hidden="true"></span>
+                  </th>
+                  <th scope="col" class="th-sortable" data-col="ragione_sociale">
+                    Ragione Sociale <span class="sort-icon" aria-hidden="true"></span>
+                  </th>
+                  <th scope="col">Referente</th>
+                  <th scope="col" class="th-sortable" data-col="zona">
+                    Zona <span class="sort-icon" aria-hidden="true"></span>
+                  </th>
+                  <th scope="col">Servizi</th>
+                  <th scope="col" class="th-sortable" data-col="rating">
+                    Rating <span class="sort-icon" aria-hidden="true"></span>
+                  </th>
+                  <th scope="col" class="th-sortable" data-col="spedizioni_mese">
+                    Sped./mese <span class="sort-icon" aria-hidden="true"></span>
+                  </th>
+                  <th scope="col" class="th-sortable" data-col="stato">
+                    Stato <span class="sort-icon" aria-hidden="true"></span>
+                  </th>
+                  <th scope="col" style="text-align:right;">Azioni</th>
+                </tr>
+              </thead>
+              <tbody id="tableBody">
+                <!-- populated by JS -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Empty state -->
+          <div class="corrieri-empty" id="emptyState" style="display:none;">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--jh-dark-grey-40);margin-bottom:12px;"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            <p style="font-weight:600;margin:0 0 4px;">Nessun corriere trovato</p>
+            <p style="color:var(--jh-dark-grey-60);font-size:0.85rem;margin:0 0 16px;">Prova a modificare i filtri o la ricerca.</p>
+            <button class="btn btn--ghost btn--sm" id="resetFromEmpty">Reset filtri</button>
+          </div>
+
+          <!-- Loading state -->
+          <div class="corrieri-loading" id="loadingState">
+            <svg class="spin" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+            <span>Caricamento corrieri…</span>
+          </div>
+
+          <!-- Pagination -->
+          <div class="corrieri-pagination" id="pagination" style="display:none;">
+            <span class="corrieri-pagination__info" id="paginationInfo"></span>
+            <div class="corrieri-pagination__controls">
+              <button class="corrieri-pagination__btn" id="prevPageBtn" aria-label="Pagina precedente" disabled>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+              </button>
+              <div class="corrieri-pagination__pages" id="paginationPages"></div>
+              <button class="corrieri-pagination__btn" id="nextPageBtn" aria-label="Pagina successiva">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </button>
+            </div>
+          </div>
+
+        </div><!-- /card -->
+
+      </div><!-- /app-content -->
+
+      <footer class="app-footer">
+        <span class="app-footer__left">© 2024 Jungheinrich AG · Control Tower</span>
+        <div class="app-footer__right">
+          <span>v2.4.0</span>
+          <span class="app-footer__dot"></span>
+          <span>Demo Environment</span>
+          <span class="app-footer__dot"></span>
+          <a href="#">Supporto</a>
+          <span class="app-footer__dot"></span>
+          <a href="#">Privacy</a>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <!-- ════════════════════════════════════
+       MODAL ADD / EDIT
+  ═════════════════════════════════════ -->
+  <div class="modal" id="corriereModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal__backdrop" id="modalBackdrop"></div>
+    <div class="modal__box">
+
+      <div class="modal__header">
+        <h2 class="modal__title" id="modalTitle">Nuovo corriere</h2>
+        <button class="modal__close" id="modalClose" aria-label="Chiudi">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <form id="corriereForm" novalidate>
+        <input type="hidden" id="fId">
+
+        <div class="modal__body">
+
+          <!-- Sezione: Dati aziendali -->
+          <div class="modal__section-title">Dati aziendali</div>
+          <div class="modal__grid">
+            <div class="form-group">
+              <label class="form-label" for="fNome">Nome breve <span class="required">*</span></label>
+              <input type="text" class="form-input" id="fNome" placeholder="Es. Adragna" required>
+              <span class="field-error" id="errNome"></span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="fCodice">Codice <span class="required">*</span></label>
+              <input type="text" class="form-input" id="fCodice" placeholder="Es. ADR" maxlength="5" required>
+              <span class="field-error" id="errCodice"></span>
+            </div>
+            <div class="form-group modal__grid--span2">
+              <label class="form-label" for="fRagioneSociale">Ragione sociale <span class="required">*</span></label>
+              <input type="text" class="form-input" id="fRagioneSociale" placeholder="Es. Adragna Trasporti S.r.l." required>
+              <span class="field-error" id="errRagioneSociale"></span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="fPartitaIva">Partita IVA</label>
+              <input type="text" class="form-input" id="fPartitaIva" placeholder="12345678901" maxlength="11">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="fPec">PEC</label>
+              <input type="email" class="form-input" id="fPec" placeholder="corriere@pec.it">
+            </div>
+          </div>
+
+          <!-- Sezione: Contatti -->
+          <div class="modal__section-title">Contatti</div>
+          <div class="modal__grid">
+            <div class="form-group modal__grid--span2">
+              <label class="form-label" for="fReferente">Referente <span class="required">*</span></label>
+              <input type="text" class="form-input" id="fReferente" placeholder="Nome e Cognome" required>
+              <span class="field-error" id="errReferente"></span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="fEmail">Email <span class="required">*</span></label>
+              <input type="email" class="form-input" id="fEmail" placeholder="info@corriere.it" required>
+              <span class="field-error" id="errEmail"></span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="fTelefono">Telefono</label>
+              <input type="tel" class="form-input" id="fTelefono" placeholder="+39 02 1234 5678">
+            </div>
+          </div>
+
+          <!-- Sezione: Sede -->
+          <div class="modal__section-title">Sede</div>
+          <div class="modal__grid">
+            <div class="form-group modal__grid--span2">
+              <label class="form-label" for="fIndirizzo">Indirizzo</label>
+              <input type="text" class="form-input" id="fIndirizzo" placeholder="Via Roma, 1">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="fCitta">Città</label>
+              <input type="text" class="form-input" id="fCitta" placeholder="Milano">
+            </div>
+            <div class="form-group" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+              <div>
+                <label class="form-label" for="fProvincia">Prov.</label>
+                <input type="text" class="form-input" id="fProvincia" placeholder="MI" maxlength="2" style="text-transform:uppercase;">
+              </div>
+              <div>
+                <label class="form-label" for="fCap">CAP</label>
+                <input type="text" class="form-input" id="fCap" placeholder="20100" maxlength="5">
+              </div>
+            </div>
+          </div>
+
+          <!-- Sezione: Contratto -->
+          <div class="modal__section-title">Contratto &amp; Servizi</div>
+          <div class="modal__grid">
+            <div class="form-group">
+              <label class="form-label" for="fZona">Zona <span class="required">*</span></label>
+              <select class="form-input" id="fZona" required>
+                <option value="">Seleziona zona…</option>
+                <option value="Nord-Ovest">Nord-Ovest</option>
+                <option value="Nord-Est">Nord-Est</option>
+                <option value="Centro">Centro</option>
+                <option value="Sud">Sud</option>
+                <option value="Isole">Isole</option>
+                <option value="Nazionale">Nazionale</option>
+              </select>
+              <span class="field-error" id="errZona"></span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="fStato">Stato <span class="required">*</span></label>
+              <select class="form-input" id="fStato" required>
+                <option value="attivo">Attivo</option>
+                <option value="sospeso">Sospeso</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="fDataContratto">Data contratto</label>
+              <input type="date" class="form-input" id="fDataContratto">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="fScadenzaContratto">Scadenza contratto</label>
+              <input type="date" class="form-input" id="fScadenzaContratto">
+            </div>
+            <div class="form-group modal__grid--span2">
+              <label class="form-label">Servizi offerti</label>
+              <div class="modal__checkboxes">
+                <label class="form-check"><input type="checkbox" name="servizi" value="Espresso"> Espresso</label>
+                <label class="form-check"><input type="checkbox" name="servizi" value="Standard"> Standard</label>
+                <label class="form-check"><input type="checkbox" name="servizi" value="Economy"> Economy</label>
+                <label class="form-check"><input type="checkbox" name="servizi" value="Gruppage"> Gruppage</label>
+                <label class="form-check"><input type="checkbox" name="servizi" value="ADR"> ADR</label>
+              </div>
+            </div>
+            <div class="form-group modal__grid--span2">
+              <label class="form-label" for="fNote">Note</label>
+              <textarea class="form-input" id="fNote" rows="3" placeholder="Note interne sul corriere…" style="resize:vertical;"></textarea>
+            </div>
+          </div>
+
+        </div><!-- /modal__body -->
+
+        <div class="modal__footer">
+          <button type="button" class="btn btn--ghost" id="modalCancel">Annulla</button>
+          <button type="submit" class="btn btn--primary" id="modalSave">
+            <svg class="spin" id="modalSaveSpinner" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="display:none;" aria-hidden="true"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+            Salva corriere
+          </button>
+        </div>
+      </form>
+    </div>
+  </div><!-- /modal -->
+
+  <!-- ════════════════════════════════════
+       JAVASCRIPT
+  ═════════════════════════════════════ -->
+  <script>
+  (() => {
+    'use strict';
+
+    // ─── Constants ───────────────────────────────────────────────
+    const STORAGE_KEY = 'jh_corrieri_v1';
+    const PAGE_SIZE   = 5;
+
+    // ─── State ────────────────────────────────────────────────────
+    let allData      = [];   // full dataset (from JSON / localStorage)
+    let filtered     = [];   // after search + filters
+    let currentPage  = 1;
+    let sortCol      = 'codice';
+    let sortDir      = 'asc';
+
+    // ─── DOM refs ─────────────────────────────────────────────────
+    const tableBody       = document.getElementById('tableBody');
+    const emptyState      = document.getElementById('emptyState');
+    const loadingState    = document.getElementById('loadingState');
+    const pagination      = document.getElementById('pagination');
+    const paginationInfo  = document.getElementById('paginationInfo');
+    const paginationPages = document.getElementById('paginationPages');
+    const prevPageBtn     = document.getElementById('prevPageBtn');
+    const nextPageBtn     = document.getElementById('nextPageBtn');
+    const searchInput     = document.getElementById('searchInput');
+    const filterZona      = document.getElementById('filterZona');
+    const filterStato     = document.getElementById('filterStato');
+    const filterServizio  = document.getElementById('filterServizio');
+    const resetFiltersBtn = document.getElementById('resetFiltersBtn');
+    const resetFromEmpty  = document.getElementById('resetFromEmpty');
+    const newCorriereBtn  = document.getElementById('newCorriereBtn');
+    const exportBtn       = document.getElementById('exportBtn');
+    const pageSubtitle    = document.getElementById('pageSubtitle');
+
+    // Modal refs
+    const modal          = document.getElementById('corriereModal');
+    const modalBackdrop  = document.getElementById('modalBackdrop');
+    const modalClose     = document.getElementById('modalClose');
+    const modalCancel    = document.getElementById('modalCancel');
+    const modalTitle     = document.getElementById('modalTitle');
+    const corriereForm   = document.getElementById('corriereForm');
+    const modalSave      = document.getElementById('modalSave');
+    const modalSaveSpinner = document.getElementById('modalSaveSpinner');
+
+    // ─── Load data ────────────────────────────────────────────────
+    async function loadData() {
+      // Try localStorage first
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored) {
+        try {
+          allData = JSON.parse(stored);
+          init();
+          return;
+        } catch (_) {}
+      }
+      // Fetch JSON
+      try {
+        const res  = await fetch('data/corrieri.json');
+        const json = await res.json();
+        allData = json.corrieri;
+        persistData();
+        init();
+      } catch (err) {
+        loadingState.innerHTML = '<span style="color:var(--jh-red);">Errore nel caricamento dei dati.</span>';
+      }
+    }
+
+    function persistData() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(allData));
+    }
+
+    function init() {
+      loadingState.style.display = 'none';
+      updateKPIs();
+      applyFilters();
+    }
+
+    // ─── KPI strip ────────────────────────────────────────────────
+    function updateKPIs() {
+      const total     = allData.length;
+      const attivi    = allData.filter(c => c.stato === 'attivo').length;
+      const sospesi   = allData.filter(c => c.stato === 'sospeso').length;
+      const sped      = allData.reduce((s, c) => s + c.spedizioni_mese, 0);
+      const ratingAvg = (allData.reduce((s, c) => s + c.rating, 0) / total).toFixed(1);
+
+      document.getElementById('kpiTotale').textContent   = total;
+      document.getElementById('kpiAttivi').textContent   = attivi;
+      document.getElementById('kpiSospesi').textContent  = sospesi;
+      document.getElementById('kpiSpedMese').textContent = sped.toLocaleString('it-IT');
+      document.getElementById('kpiRatingMedio').textContent = '★ ' + ratingAvg;
+
+      pageSubtitle.textContent = `${total} corrieri registrati · ${attivi} attivi`;
+    }
+
+    // ─── Filters & search ─────────────────────────────────────────
+    function applyFilters() {
+      const q        = searchInput.value.trim().toLowerCase();
+      const zona     = filterZona.value;
+      const stato    = filterStato.value;
+      const servizio = filterServizio.value;
+
+      filtered = allData.filter(c => {
+        const matchQ = !q ||
+          c.nome.toLowerCase().includes(q) ||
+          c.ragione_sociale.toLowerCase().includes(q) ||
+          c.codice.toLowerCase().includes(q) ||
+          c.referente.toLowerCase().includes(q) ||
+          c.citta.toLowerCase().includes(q);
+        const matchZona     = !zona     || c.zona === zona;
+        const matchStato    = !stato    || c.stato === stato;
+        const matchServizio = !servizio || c.servizi.includes(servizio);
+        return matchQ && matchZona && matchStato && matchServizio;
+      });
+
+      // Show/hide reset button
+      const hasFilter = q || zona || stato || servizio;
+      resetFiltersBtn.style.display = hasFilter ? 'flex' : 'none';
+
+      sortData();
+      currentPage = 1;
+      renderTable();
+    }
+
+    // ─── Sort ──────────────────────────────────────────────────────
+    function sortData() {
+      filtered.sort((a, b) => {
+        let va = a[sortCol], vb = b[sortCol];
+        if (typeof va === 'string') va = va.toLowerCase();
+        if (typeof vb === 'string') vb = vb.toLowerCase();
+        if (va < vb) return sortDir === 'asc' ? -1 : 1;
+        if (va > vb) return sortDir === 'asc' ?  1 : -1;
+        return 0;
+      });
+    }
+
+    function handleSort(col) {
+      if (sortCol === col) {
+        sortDir = sortDir === 'asc' ? 'desc' : 'asc';
+      } else {
+        sortCol = col;
+        sortDir = 'asc';
+      }
+      sortData();
+      renderTable();
+      updateSortIcons();
+    }
+
+    function updateSortIcons() {
+      document.querySelectorAll('.th-sortable').forEach(th => {
+        const col  = th.dataset.col;
+        const icon = th.querySelector('.sort-icon');
+        th.setAttribute('aria-sort', 'none');
+        icon.textContent = '';
+        icon.className = 'sort-icon';
+        if (col === sortCol) {
+          icon.textContent = sortDir === 'asc' ? ' ↑' : ' ↓';
+          icon.className = 'sort-icon sort-icon--active';
+          th.setAttribute('aria-sort', sortDir === 'asc' ? 'ascending' : 'descending');
+        }
+      });
+    }
+
+    // ─── Render table ─────────────────────────────────────────────
+    function renderTable() {
+      const total    = filtered.length;
+      const pages    = Math.ceil(total / PAGE_SIZE);
+      const start    = (currentPage - 1) * PAGE_SIZE;
+      const end      = Math.min(start + PAGE_SIZE, total);
+      const pageData = filtered.slice(start, end);
+
+      tableBody.innerHTML = '';
+
+      if (total === 0) {
+        emptyState.style.display  = 'flex';
+        pagination.style.display  = 'none';
+        return;
+      }
+
+      emptyState.style.display = 'none';
+
+      pageData.forEach(c => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td><span class="ship-id" style="font-size:0.78rem;">${esc(c.codice)}</span></td>
+          <td>
+            <div style="font-weight:600;font-size:0.875rem;">${esc(c.ragione_sociale)}</div>
+            <div style="font-size:0.76rem;color:var(--jh-dark-grey-60);">${esc(c.citta)}, ${esc(c.provincia)}</div>
+          </td>
+          <td>
+            <div style="font-size:0.85rem;">${esc(c.referente)}</div>
+            <div style="font-size:0.75rem;color:var(--jh-dark-grey-60);">${esc(c.email)}</div>
+          </td>
+          <td><span class="badge ${zonaBadgeClass(c.zona)}">${esc(c.zona)}</span></td>
+          <td><div class="servizi-badges">${renderServiziBadges(c.servizi)}</div></td>
+          <td>${renderStars(c.rating)}</td>
+          <td style="font-variant-numeric:tabular-nums;font-size:0.875rem;">${c.spedizioni_mese.toLocaleString('it-IT')}</td>
+          <td>${renderStatoBadge(c.stato)}</td>
+          <td style="text-align:right;">
+            <button class="btn btn--ghost btn--sm btn-edit" data-id="${esc(c.id)}" title="Modifica corriere">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+              Modifica
+            </button>
+          </td>
+        `;
+        tableBody.appendChild(tr);
+      });
+
+      // Bind edit buttons
+      tableBody.querySelectorAll('.btn-edit').forEach(btn => {
+        btn.addEventListener('click', () => openModal('edit', btn.dataset.id));
+      });
+
+      renderPagination(total, pages);
+      updateSortIcons();
+    }
+
+    // ─── Pagination ───────────────────────────────────────────────
+    function renderPagination(total, pages) {
+      const start = (currentPage - 1) * PAGE_SIZE + 1;
+      const end   = Math.min(currentPage * PAGE_SIZE, total);
+
+      pagination.style.display = total > 0 ? 'flex' : 'none';
+      paginationInfo.textContent = `Mostrando ${start}–${end} di ${total}`;
+
+      prevPageBtn.disabled = currentPage <= 1;
+      nextPageBtn.disabled = currentPage >= pages;
+
+      paginationPages.innerHTML = '';
+      for (let i = 1; i <= pages; i++) {
+        const btn = document.createElement('button');
+        btn.className = 'corrieri-pagination__page' + (i === currentPage ? ' corrieri-pagination__page--active' : '');
+        btn.textContent = i;
+        btn.addEventListener('click', () => { currentPage = i; renderTable(); });
+        paginationPages.appendChild(btn);
+      }
+    }
+
+    // ─── Helpers ──────────────────────────────────────────────────
+    function esc(str) {
+      if (str == null) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function zonaBadgeClass(zona) {
+      const map = {
+        'Nazionale': 'badge--blue',
+        'Nord-Ovest': 'badge--yellow',
+        'Nord-Est':   'badge--yellow',
+        'Centro':     'badge--green',
+        'Sud':        'badge--red',
+        'Isole':      'badge--red',
+      };
+      return map[zona] || 'badge--yellow';
+    }
+
+    function renderServiziBadges(servizi) {
+      const colors = { Espresso: 'badge--blue', Standard: 'badge--green', Economy: '', Gruppage: '', ADR: 'badge--red' };
+      return servizi.map(s => `<span class="badge ${colors[s] || ''}" style="font-size:0.7rem;">${esc(s)}</span>`).join('');
+    }
+
+    function renderStars(rating) {
+      const full  = Math.floor(rating);
+      const half  = rating - full >= 0.5 ? 1 : 0;
+      const color = rating >= 4.3 ? '#22c55e' : rating >= 3.5 ? '#FFB900' : '#CC0000';
+      return `<span style="color:${color};font-size:0.85rem;font-variant-numeric:tabular-nums;">★ ${rating.toFixed(1)}</span>`;
+    }
+
+    function renderStatoBadge(stato) {
+      return stato === 'attivo'
+        ? '<span class="badge badge--green">Attivo</span>'
+        : '<span class="badge badge--red">Sospeso</span>';
+    }
+
+    // ─── Reset filters ────────────────────────────────────────────
+    function resetFilters() {
+      searchInput.value  = '';
+      filterZona.value   = '';
+      filterStato.value  = '';
+      filterServizio.value = '';
+      resetFiltersBtn.style.display = 'none';
+      applyFilters();
+    }
+
+    // ─── Modal ────────────────────────────────────────────────────
+    function openModal(mode, id = null) {
+      corriereForm.reset();
+      clearFormErrors();
+
+      if (mode === 'edit' && id) {
+        const c = allData.find(x => x.id === id);
+        if (!c) return;
+        modalTitle.textContent       = 'Modifica corriere';
+        modalSave.innerHTML          = `<svg class="spin" id="modalSaveSpinner" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="display:none;" aria-hidden="true"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg> Salva modifiche`;
+        document.getElementById('fId').value              = c.id;
+        document.getElementById('fNome').value            = c.nome;
+        document.getElementById('fCodice').value          = c.codice;
+        document.getElementById('fRagioneSociale').value  = c.ragione_sociale;
+        document.getElementById('fPartitaIva').value      = c.partita_iva || '';
+        document.getElementById('fPec').value             = c.pec || '';
+        document.getElementById('fReferente').value       = c.referente;
+        document.getElementById('fEmail').value           = c.email;
+        document.getElementById('fTelefono').value        = c.telefono || '';
+        document.getElementById('fIndirizzo').value       = c.indirizzo || '';
+        document.getElementById('fCitta').value           = c.citta || '';
+        document.getElementById('fProvincia').value       = c.provincia || '';
+        document.getElementById('fCap').value             = c.cap || '';
+        document.getElementById('fZona').value            = c.zona;
+        document.getElementById('fStato').value           = c.stato;
+        document.getElementById('fDataContratto').value   = c.data_contratto || '';
+        document.getElementById('fScadenzaContratto').value = c.scadenza_contratto || '';
+        document.getElementById('fNote').value            = c.note || '';
+        document.querySelectorAll('input[name="servizi"]').forEach(cb => {
+          cb.checked = c.servizi.includes(cb.value);
+        });
+      } else {
+        modalTitle.textContent = 'Nuovo corriere';
+        modalSave.innerHTML    = `<svg class="spin" id="modalSaveSpinner" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="display:none;" aria-hidden="true"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg> Salva corriere`;
+      }
+
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('fNome').focus();
+    }
+
+    function closeModal() {
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function clearFormErrors() {
+      document.querySelectorAll('.field-error').forEach(el => { el.textContent = ''; });
+      document.querySelectorAll('.form-input.is-invalid').forEach(el => el.classList.remove('is-invalid'));
+    }
+
+    function validateForm() {
+      let valid = true;
+      const required = [
+        { id: 'fNome',           err: 'errNome',           label: 'Nome breve' },
+        { id: 'fCodice',         err: 'errCodice',         label: 'Codice' },
+        { id: 'fRagioneSociale', err: 'errRagioneSociale', label: 'Ragione sociale' },
+        { id: 'fReferente',      err: 'errReferente',      label: 'Referente' },
+        { id: 'fEmail',          err: 'errEmail',          label: 'Email' },
+        { id: 'fZona',           err: 'errZona',           label: 'Zona' },
+      ];
+      required.forEach(({ id, err, label }) => {
+        const el = document.getElementById(id);
+        if (!el.value.trim()) {
+          document.getElementById(err).textContent = `${label} è obbligatorio.`;
+          el.classList.add('is-invalid');
+          valid = false;
+        }
+      });
+      // Email format
+      const emailEl = document.getElementById('fEmail');
+      if (emailEl.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value)) {
+        document.getElementById('errEmail').textContent = 'Formato email non valido.';
+        emailEl.classList.add('is-invalid');
+        valid = false;
+      }
+      return valid;
+    }
+
+    function saveCorrere(e) {
+      e.preventDefault();
+      clearFormErrors();
+      if (!validateForm()) return;
+
+      const spinner = document.getElementById('modalSaveSpinner');
+      spinner.style.display = 'inline-block';
+      modalSave.disabled = true;
+
+      setTimeout(() => {
+        const id       = document.getElementById('fId').value;
+        const servizi  = Array.from(document.querySelectorAll('input[name="servizi"]:checked')).map(cb => cb.value);
+        const record   = {
+          id: id || 'COR-' + String(allData.length + 1).padStart(3, '0'),
+          nome:             document.getElementById('fNome').value.trim(),
+          ragione_sociale:  document.getElementById('fRagioneSociale').value.trim(),
+          codice:           document.getElementById('fCodice').value.trim().toUpperCase(),
+          referente:        document.getElementById('fReferente').value.trim(),
+          email:            document.getElementById('fEmail').value.trim(),
+          telefono:         document.getElementById('fTelefono').value.trim(),
+          pec:              document.getElementById('fPec').value.trim(),
+          partita_iva:      document.getElementById('fPartitaIva').value.trim(),
+          indirizzo:        document.getElementById('fIndirizzo').value.trim(),
+          citta:            document.getElementById('fCitta').value.trim(),
+          provincia:        document.getElementById('fProvincia').value.trim().toUpperCase(),
+          cap:              document.getElementById('fCap').value.trim(),
+          zona:             document.getElementById('fZona').value,
+          regioni:          [],
+          servizi:          servizi,
+          stato:            document.getElementById('fStato').value,
+          rating:           id ? (allData.find(x => x.id === id)?.rating ?? 0) : 0,
+          spedizioni_mese:  id ? (allData.find(x => x.id === id)?.spedizioni_mese ?? 0) : 0,
+          ritardo_medio_giorni: id ? (allData.find(x => x.id === id)?.ritardo_medio_giorni ?? 0) : 0,
+          data_contratto:   document.getElementById('fDataContratto').value,
+          scadenza_contratto: document.getElementById('fScadenzaContratto').value,
+          note:             document.getElementById('fNote').value.trim(),
+        };
+
+        if (id) {
+          const idx = allData.findIndex(x => x.id === id);
+          if (idx !== -1) allData[idx] = record;
+        } else {
+          allData.push(record);
+        }
+
+        persistData();
+        updateKPIs();
+        applyFilters();
+        closeModal();
+
+        spinner.style.display = 'none';
+        modalSave.disabled    = false;
+      }, 600);
+    }
+
+    // ─── CSV Export ───────────────────────────────────────────────
+    function exportCSV() {
+      const headers = ['ID','Codice','Ragione Sociale','Referente','Email','Telefono','Zona','Servizi','Stato','Rating','Sped./mese','Data contratto','Scadenza'];
+      const rows = filtered.map(c => [
+        c.id, c.codice, c.ragione_sociale, c.referente, c.email, c.telefono,
+        c.zona, c.servizi.join('; '), c.stato, c.rating, c.spedizioni_mese,
+        c.data_contratto, c.scadenza_contratto
+      ].map(v => `"${String(v ?? '').replace(/"/g, '""')}"`).join(','));
+      const csv  = [headers.join(','), ...rows].join('\n');
+      const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8;' });
+      const url  = URL.createObjectURL(blob);
+      const a    = document.createElement('a');
+      a.href     = url;
+      a.download = 'corrieri-jh.csv';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    // ─── Event listeners ──────────────────────────────────────────
+    searchInput.addEventListener('input',  applyFilters);
+    filterZona.addEventListener('change',  applyFilters);
+    filterStato.addEventListener('change', applyFilters);
+    filterServizio.addEventListener('change', applyFilters);
+    resetFiltersBtn.addEventListener('click', resetFilters);
+    resetFromEmpty.addEventListener('click',  resetFilters);
+
+    document.querySelectorAll('.th-sortable').forEach(th => {
+      th.addEventListener('click', () => handleSort(th.dataset.col));
+      th.style.cursor = 'pointer';
+    });
+
+    newCorriereBtn.addEventListener('click', () => openModal('create'));
+    exportBtn.addEventListener('click', exportCSV);
+
+    corriereForm.addEventListener('submit', saveCorrere);
+    modalClose.addEventListener('click',   closeModal);
+    modalCancel.addEventListener('click',  closeModal);
+    modalBackdrop.addEventListener('click', closeModal);
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+    });
+
+    prevPageBtn.addEventListener('click', () => { currentPage--; renderTable(); });
+    nextPageBtn.addEventListener('click', () => { currentPage++; renderTable(); });
+
+    // ─── Sidebar / Header JS (shared) ─────────────────────────────
+    const sidebar        = document.getElementById('sidebar');
+    const appMain        = document.getElementById('appMain');
+    const sidebarToggle  = document.getElementById('sidebarToggle');
+    sidebarToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('collapsed');
+      appMain.classList.toggle('sidebar-collapsed');
+    });
+    const hamburgerBtn   = document.getElementById('hamburgerBtn');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+    hamburgerBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('mobile-open');
+      sidebarOverlay.classList.toggle('visible');
+    });
+    sidebarOverlay.addEventListener('click', () => {
+      sidebar.classList.remove('mobile-open');
+      sidebarOverlay.classList.remove('visible');
+    });
+    const avatarBtn      = document.getElementById('avatarBtn');
+    const avatarDropdown = document.getElementById('avatarDropdown');
+    avatarBtn.addEventListener('click', e => {
+      e.stopPropagation();
+      const open = avatarDropdown.classList.toggle('open');
+      avatarBtn.setAttribute('aria-expanded', open);
+      avatarBtn.querySelector('.app-header__avatar-chevron').style.transform = open ? 'rotate(180deg)' : '';
+    });
+    document.addEventListener('click', () => {
+      avatarDropdown.classList.remove('open');
+      avatarBtn.setAttribute('aria-expanded', 'false');
+      avatarBtn.querySelector('.app-header__avatar-chevron').style.transform = '';
+    });
+
+    // ─── Boot ─────────────────────────────────────────────────────
+    loadData();
+  })();
+  </script>
+</body>
+</html>

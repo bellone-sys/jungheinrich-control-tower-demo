@@ -43,36 +43,32 @@
 .lp-topbar__logo {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   text-decoration: none;
 }
 
-.lp-topbar__logo-icon {
-  width: 36px;
-  height: 36px;
-  flex-shrink: 0;
-  border-radius: 4px;
-}
-
-.lp-topbar__brand {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.15;
-}
-
-.lp-topbar__brand-name {
-  font-size: 0.875rem;
-  font-weight: 700;
-  color: #fff;
-  letter-spacing: 0.01em;
+.lp-topbar__logo-img {
+  height: 28px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  /* logo on white bg: visible pill on dark topbar */
+  background: #fff;
+  border-radius: 3px;
+  padding: 3px 8px;
 }
 
 .lp-topbar__brand-product {
-  font-size: 0.7rem;
-  font-weight: 500;
+  font-size: 0.65rem;
+  font-weight: 600;
   color: var(--jh-yellow);
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.15em;
+  background: rgba(255,185,0,0.12);
+  border: 1px solid rgba(255,185,0,0.3);
+  border-radius: 20px;
+  padding: 2px 8px;
+  white-space: nowrap;
 }
 
 .lp-topbar__nav {
