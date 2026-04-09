@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JH Control Tower — Gestione Intelligente dei Trasporti</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="jungheinrich.css" />
+  <link rel="stylesheet" href="landing.css" />
+</head>
+<body class="landing-body">
+
+  <!-- ═══════════════════════════════════════════
+       TOPBAR
+  ════════════════════════════════════════════ -->
+  <header class="lp-topbar">
+    <div class="container flex-between">
+      <a href="index.html" class="lp-topbar__logo">
+        <!-- Jungheinrich wordmark -->
+        <svg class="lp-topbar__logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="32" height="32" fill="#FFB900"/>
+          <path d="M7 8h4v10c0 2.2-1.8 4-4 4H6v-3h1c.55 0 1-.45 1-1V8z" fill="#000"/>
+          <path d="M13 8h4v16h-4V8z" fill="#000"/>
+          <path d="M19 8h4v6.5L27 8h4.5l-4.8 7 5 9H27l-3.5-6.5-1.5 2V24h-3V8z" fill="#000"/>
+        </svg>
+        <span class="lp-topbar__brand">
+          <span class="lp-topbar__brand-name">Jungheinrich</span>
+          <span class="lp-topbar__brand-product">Control Tower</span>
+        </span>
+      </a>
+      <nav class="lp-topbar__nav" aria-label="Navigazione principale">
+        <a href="#features" class="lp-topbar__link">Funzionalità</a>
+        <a href="#how-it-works" class="lp-topbar__link">Come funziona</a>
+        <a href="#benefits" class="lp-topbar__link">Vantaggi</a>
+        <a href="login.html" class="btn btn--primary btn--sm">Accedi</a>
+      </nav>
+      <button class="lp-topbar__burger" aria-label="Menu" id="burgerBtn">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════
+       HERO
+  ════════════════════════════════════════════ -->
+  <section class="lp-hero">
+    <div class="container">
+      <div class="lp-hero__content">
+        <div class="lp-hero__tag">
+          <span class="badge badge--yellow">Nuovo · 2024</span>
+          <span class="lp-hero__tag-text">Piattaforma di gestione trasporti</span>
+        </div>
+        <h1 class="lp-hero__title">
+          Visibilità totale sui tuoi<br/>
+          <span class="lp-hero__title-accent">trasporti in Italia</span>
+        </h1>
+        <p class="lp-hero__subtitle">
+          Control Tower integra in un'unica piattaforma il monitoraggio, la pianificazione e l'ottimizzazione di tutti i movimenti di carrelli elevatori sul territorio italiano, coordinando corrieri esterni in tempo reale.
+        </p>
+        <div class="lp-hero__actions">
+          <a href="login.html" class="btn btn--primary btn--lg">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+            Accedi alla piattaforma
+          </a>
+          <a href="#how-it-works" class="btn btn--secondary btn--lg lp-hero__link-demo">
+            Scopri come funziona
+          </a>
+        </div>
+        <div class="lp-hero__stats">
+          <div class="lp-hero__stat">
+            <span class="lp-hero__stat-value">98<span class="lp-hero__stat-unit">%</span></span>
+            <span class="lp-hero__stat-label">Visibilità spedizioni</span>
+          </div>
+          <div class="lp-hero__stat-divider"></div>
+          <div class="lp-hero__stat">
+            <span class="lp-hero__stat-value">–23<span class="lp-hero__stat-unit">%</span></span>
+            <span class="lp-hero__stat-label">Costi di trasporto</span>
+          </div>
+          <div class="lp-hero__stat-divider"></div>
+          <div class="lp-hero__stat">
+            <span class="lp-hero__stat-value">48<span class="lp-hero__stat-unit">h</span></span>
+            <span class="lp-hero__stat-label">Tempo medio consegna</span>
+          </div>
+        </div>
+      </div>
+      <div class="lp-hero__visual" aria-hidden="true">
+        <!-- Mappa stilizzata Italia placeholder -->
+        <div class="lp-map-preview">
+          <div class="lp-map-preview__bg"></div>
+          <div class="lp-map-preview__grid"></div>
+          <!-- Punti mappa simulati -->
+          <div class="lp-map-pin lp-map-pin--active" style="top:28%;left:42%" title="Milano">
+            <span class="lp-map-pin__dot"></span>
+            <span class="lp-map-pin__label">Milano</span>
+          </div>
+          <div class="lp-map-pin" style="top:38%;left:46%" title="Bologna">
+            <span class="lp-map-pin__dot"></span>
+            <span class="lp-map-pin__label">Bologna</span>
+          </div>
+          <div class="lp-map-pin lp-map-pin--warning" style="top:48%;left:44%" title="Firenze">
+            <span class="lp-map-pin__dot"></span>
+            <span class="lp-map-pin__label">Firenze</span>
+          </div>
+          <div class="lp-map-pin" style="top:62%;left:48%" title="Roma">
+            <span class="lp-map-pin__dot"></span>
+            <span class="lp-map-pin__label">Roma</span>
+          </div>
+          <div class="lp-map-pin lp-map-pin--alert" style="top:76%;left:40%" title="Napoli">
+            <span class="lp-map-pin__dot"></span>
+            <span class="lp-map-pin__label">Napoli</span>
+          </div>
+          <!-- Mini card overlay -->
+          <div class="lp-map-card">
+            <div class="lp-map-card__header">
+              <span class="status status--online">In transito</span>
+              <span class="badge badge--yellow">Live</span>
+            </div>
+            <div class="lp-map-card__kpi">
+              <span class="lp-map-card__value">247</span>
+              <span class="lp-map-card__label">Spedizioni attive</span>
+            </div>
+            <div class="lp-map-card__kpi">
+              <span class="lp-map-card__value">12</span>
+              <span class="lp-map-card__label">Richiedono attenzione</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       LOGHI CORRIERI
+  ════════════════════════════════════════════ -->
+  <section class="lp-partners">
+    <div class="container">
+      <p class="lp-partners__label">Integrato con i principali corrieri italiani</p>
+      <div class="lp-partners__logos">
+        <div class="lp-partner-chip">BRT</div>
+        <div class="lp-partner-chip">GLS</div>
+        <div class="lp-partner-chip">SDA</div>
+        <div class="lp-partner-chip">DHL</div>
+        <div class="lp-partner-chip">Poste Italiane</div>
+        <div class="lp-partner-chip">Fercam</div>
+        <div class="lp-partner-chip">TNT / FedEx</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FEATURES
+  ════════════════════════════════════════════ -->
+  <section class="lp-section" id="features">
+    <div class="container">
+      <div class="lp-section__header">
+        <p class="label">Funzionalità</p>
+        <h2 class="lp-section__title">Tutto ciò che ti serve,<br/>in un'unica piattaforma</h2>
+        <p class="lp-section__subtitle">Progettato per i team logistici Jungheinrich che devono coordinare flotte di carrelli su scala nazionale con corrieri terzi.</p>
+      </div>
+      <div class="grid grid--3 lp-features-grid">
+
+        <div class="lp-feature-card">
+          <div class="lp-feature-card__icon lp-feature-card__icon--yellow">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0"/><path d="M12 8v4l3 3"/></svg>
+          </div>
+          <h3 class="lp-feature-card__title">Monitoraggio Real-Time</h3>
+          <p class="lp-feature-card__text">Traccia ogni spedizione in tempo reale su mappa interattiva. Stato, posizione GPS, ETA aggiornati ogni 60 secondi dai corrieri.</p>
+        </div>
+
+        <div class="lp-feature-card">
+          <div class="lp-feature-card__icon lp-feature-card__icon--dark">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          </div>
+          <h3 class="lp-feature-card__title">Pianificazione Intelligente</h3>
+          <p class="lp-feature-card__text">Algoritmi di ottimizzazione dei percorsi che minimizzano costi e tempi di consegna, tenendo conto di vincoli di peso, dimensioni e fasce orarie.</p>
+        </div>
+
+        <div class="lp-feature-card">
+          <div class="lp-feature-card__icon lp-feature-card__icon--turquoise">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+          </div>
+          <h3 class="lp-feature-card__title">Analytics & Report</h3>
+          <p class="lp-feature-card__text">Dashboard operative con KPI su costi, performance corrieri, puntualità e danni. Export automatico verso SAP e altri sistemi aziendali.</p>
+        </div>
+
+        <div class="lp-feature-card">
+          <div class="lp-feature-card__icon lp-feature-card__icon--green">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.73 16a2 2 0 0 1 .27.92z"/></svg>
+          </div>
+          <h3 class="lp-feature-card__title">Gestione Eccezioni</h3>
+          <p class="lp-feature-card__text">Alert automatici per ritardi, danni, mancate consegne. Workflow integrati per la gestione rapida di resi e reclami verso i corrieri.</p>
+        </div>
+
+        <div class="lp-feature-card">
+          <div class="lp-feature-card__icon lp-feature-card__icon--yellow">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+          </div>
+          <h3 class="lp-feature-card__title">Portale Corrieri</h3>
+          <p class="lp-feature-card__text">Accesso dedicato per i partner logistici: ricezione ordini, conferma ritiro, aggiornamento stato e upload POD direttamente dalla piattaforma.</p>
+        </div>
+
+        <div class="lp-feature-card">
+          <div class="lp-feature-card__icon lp-feature-card__icon--dark">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="lp-feature-card__title">Sicurezza Enterprise</h3>
+          <p class="lp-feature-card__text">SSO via Azure AD, RBAC granulare, audit log completo e conformità GDPR. Infrastruttura cloud europea certificata ISO 27001.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       HOW IT WORKS
+  ════════════════════════════════════════════ -->
+  <section class="lp-section lp-section--dark" id="how-it-works">
+    <div class="container">
+      <div class="lp-section__header lp-section__header--light">
+        <p class="label" style="color:var(--jh-yellow)">Come funziona</p>
+        <h2 class="lp-section__title" style="color:#fff">Dal preventivo alla consegna,<br/>tutto sotto controllo</h2>
+      </div>
+      <div class="lp-steps">
+        <div class="lp-step">
+          <div class="lp-step__number">01</div>
+          <div class="lp-step__body">
+            <h3 class="lp-step__title">Ordine di trasporto</h3>
+            <p class="lp-step__text">Crei l'ordine di trasporto con tutte le specifiche del carrello: modello, peso, dimensioni, indirizzo di ritiro e consegna, finestre orarie.</p>
+          </div>
+        </div>
+        <div class="lp-step__connector" aria-hidden="true"></div>
+        <div class="lp-step">
+          <div class="lp-step__number">02</div>
+          <div class="lp-step__body">
+            <h3 class="lp-step__title">Assegnazione corriere</h3>
+            <p class="lp-step__text">Il sistema seleziona automaticamente il corriere ottimale tra i partner certificati in base a tariffa, disponibilità e performance storica.</p>
+          </div>
+        </div>
+        <div class="lp-step__connector" aria-hidden="true"></div>
+        <div class="lp-step">
+          <div class="lp-step__number">03</div>
+          <div class="lp-step__body">
+            <h3 class="lp-step__title">Monitoraggio live</h3>
+            <p class="lp-step__text">Segui ogni spedizione sulla mappa in tempo reale. Ricevi notifiche proattive su ritardi, anomalie o deviazioni dal percorso pianificato.</p>
+          </div>
+        </div>
+        <div class="lp-step__connector" aria-hidden="true"></div>
+        <div class="lp-step">
+          <div class="lp-step__number">04</div>
+          <div class="lp-step__body">
+            <h3 class="lp-step__title">Consegna & reportistica</h3>
+            <p class="lp-step__text">Conferma di consegna con POD digitale, firma elettronica e foto. I dati confluiscono automaticamente nei report KPI e nei sistemi gestionali.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       BENEFITS
+  ════════════════════════════════════════════ -->
+  <section class="lp-section" id="benefits">
+    <div class="container">
+      <div class="lp-section__header">
+        <p class="label">Vantaggi</p>
+        <h2 class="lp-section__title">Risultati misurabili<br/>dal primo giorno</h2>
+      </div>
+      <div class="grid grid--4">
+        <div class="lp-benefit">
+          <span class="lp-benefit__value">–23%</span>
+          <span class="lp-benefit__label">Costi di trasporto</span>
+          <span class="lp-benefit__desc">grazie all'ottimizzazione automatica del mix corrieri</span>
+        </div>
+        <div class="lp-benefit">
+          <span class="lp-benefit__value">+41%</span>
+          <span class="lp-benefit__label">Puntualità consegne</span>
+          <span class="lp-benefit__desc">rispetto alla gestione manuale via email e telefono</span>
+        </div>
+        <div class="lp-benefit">
+          <span class="lp-benefit__value">–68%</span>
+          <span class="lp-benefit__label">Tempo gestione eccezioni</span>
+          <span class="lp-benefit__desc">grazie ai workflow automatizzati di gestione anomalie</span>
+        </div>
+        <div class="lp-benefit">
+          <span class="lp-benefit__value">98%</span>
+          <span class="lp-benefit__label">Visibilità fine-to-end</span>
+          <span class="lp-benefit__desc">delle spedizioni attive in qualsiasi momento</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       CTA FINALE
+  ════════════════════════════════════════════ -->
+  <section class="lp-cta">
+    <div class="container">
+      <div class="lp-cta__inner">
+        <h2 class="lp-cta__title">Pronto a prendere il controllo<br/>della tua logistica?</h2>
+        <p class="lp-cta__subtitle">Accedi alla piattaforma con le tue credenziali aziendali Jungheinrich.</p>
+        <a href="login.html" class="btn btn--primary btn--lg">
+          Accedi ora
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════════ -->
+  <footer class="lp-footer">
+    <div class="container">
+      <div class="lp-footer__top">
+        <div class="lp-footer__brand">
+          <span class="lp-footer__brand-name">Jungheinrich</span>
+          <span class="lp-footer__brand-product">Control Tower</span>
+          <p class="lp-footer__brand-desc">Piattaforma di gestione intelligente dei trasporti di carrelli elevatori sul territorio italiano.</p>
+        </div>
+        <div class="lp-footer__links">
+          <div class="lp-footer__col">
+            <span class="lp-footer__col-title">Piattaforma</span>
+            <a href="#features">Funzionalità</a>
+            <a href="#how-it-works">Come funziona</a>
+            <a href="#benefits">Vantaggi</a>
+          </div>
+          <div class="lp-footer__col">
+            <span class="lp-footer__col-title">Azienda</span>
+            <a href="#">Jungheinrich.com</a>
+            <a href="#">Contatti</a>
+            <a href="#">Supporto</a>
+          </div>
+          <div class="lp-footer__col">
+            <span class="lp-footer__col-title">Legale</span>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Cookie Policy</a>
+            <a href="#">Termini di utilizzo</a>
+          </div>
+        </div>
+      </div>
+      <div class="lp-footer__bottom">
+        <span>© 2024 Jungheinrich AG. Tutti i diritti riservati.</span>
+        <span>Control Tower v2.4.0 · Demo Environment</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+      });
+    });
+    // Sticky navbar opacity
+    const topbar = document.querySelector('.lp-topbar');
+    window.addEventListener('scroll', () => {
+      topbar.classList.toggle('lp-topbar--scrolled', window.scrollY > 40);
+    });
+  </script>
+</body>
+</html>

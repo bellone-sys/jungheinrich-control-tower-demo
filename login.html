@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accedi — JH Control Tower</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="jungheinrich.css" />
+  <link rel="stylesheet" href="app.css" />
+</head>
+<body class="login-body">
+
+  <div class="login-split">
+
+    <!-- ══════════════════════════════════════
+         FORM PANEL
+    ══════════════════════════════════════ -->
+    <div class="login-split__form">
+      <div class="login-form-wrap">
+
+        <!-- Logo -->
+        <a href="index.html" class="login-logo" aria-label="Torna alla home">
+          <svg class="login-logo__icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="32" height="32" fill="#FFB900" rx="4"/>
+            <path d="M7 8h4v10c0 2.2-1.8 4-4 4H6v-3h1c.55 0 1-.45 1-1V8z" fill="#000"/>
+            <path d="M13 8h4v16h-4V8z" fill="#000"/>
+            <path d="M19 8h4v7l4-7h4.5l-4.8 7 5 9H27l-3.5-6.5-1.5 2V24h-3V8z" fill="#000"/>
+          </svg>
+          <span class="login-logo__text">
+            <span class="login-logo__brand">Jungheinrich</span>
+            <span class="login-logo__product">Control Tower</span>
+          </span>
+        </a>
+
+        <!-- Heading -->
+        <div class="login-heading">
+          <h1 class="login-heading__title">Bentornato</h1>
+          <p class="login-heading__sub">Accedi alla piattaforma di gestione trasporti</p>
+        </div>
+
+        <!-- Tabs — usa .tabs + .tabs__tab da jungheinrich.css -->
+        <div class="tabs" role="tablist" aria-label="Metodo di accesso">
+          <div class="tabs__nav">
+            <button
+              class="tabs__tab"
+              role="tab"
+              aria-selected="false"
+              aria-controls="panel-sso"
+              id="tab-sso"
+              data-tab="sso"
+            >SSO Aziendale</button>
+            <button
+              class="tabs__tab tabs__tab--active"
+              role="tab"
+              aria-selected="true"
+              aria-controls="panel-direct"
+              id="tab-direct"
+              data-tab="direct"
+            >Accesso diretto</button>
+          </div>
+        </div>
+
+        <!-- Panel SSO — usa .tabs__panel da jungheinrich.css -->
+        <div class="tabs__panel" id="panel-sso" role="tabpanel" aria-labelledby="tab-sso" hidden>
+          <div class="login-sso">
+            <p class="login-sso__desc">
+              Accedi con le tue credenziali Microsoft 365 aziendali. Sarai reindirizzato alla pagina di autenticazione di Microsoft.
+            </p>
+            <button class="btn-ms" type="button" onclick="window.location.href='dashboard.html'">
+              <svg width="20" height="20" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M1 1h9v9H1z" fill="#F25022"/>
+                <path d="M11 1h9v9h-9z" fill="#7FBA00"/>
+                <path d="M1 11h9v9H1z" fill="#00A4EF"/>
+                <path d="M11 11h9v9h-9z" fill="#FFB900"/>
+              </svg>
+              Continua con Microsoft
+            </button>
+            <div class="login-sso__note">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Autenticazione sicura tramite Azure Active Directory
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel Direct Login -->
+        <div class="tabs__panel tabs__panel--active" id="panel-direct" role="tabpanel" aria-labelledby="tab-direct">
+          <form class="login-form" id="loginForm" novalidate>
+
+            <div class="form-group">
+              <label class="form-label" for="email">Email aziendale</label>
+              <div class="login-input-wrap">
+                <svg class="login-input__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <input
+                  class="form-input login-input"
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="nome.cognome@jungheinrich.com"
+                  autocomplete="email"
+                  required
+                  value="demo.user@jungheinrich.com"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="login-pw-header">
+                <label class="form-label" for="password">Password</label>
+                <a href="#" class="login-forgot" tabindex="-1">Password dimenticata?</a>
+              </div>
+              <div class="login-input-wrap">
+                <svg class="login-input__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <input
+                  class="form-input login-input"
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="••••••••••"
+                  autocomplete="current-password"
+                  required
+                  value="demo1234"
+                />
+                <button type="button" class="login-pw-toggle" aria-label="Mostra password" id="pwToggle">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="login-options">
+              <label class="form-check login-remember">
+                <input class="form-check__input" type="checkbox" id="remember" checked />
+                <span class="login-remember__label">Ricordami per 30 giorni</span>
+              </label>
+            </div>
+
+            <button class="btn btn--primary login-submit" type="submit" id="submitBtn">
+              <span class="login-submit__text">Accedi</span>
+              <span class="login-submit__spinner" hidden>
+                <svg class="spin" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+              </span>
+            </button>
+
+            <p class="login-demo-note">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+              Ambiente demo — credenziali precompilate per la presentazione
+            </p>
+
+          </form>
+        </div>
+
+      </div><!-- /login-form-wrap -->
+    </div><!-- /login-split__form -->
+
+    <!-- ══════════════════════════════════════
+         VISUAL PANEL
+    ══════════════════════════════════════ -->
+    <div class="login-split__visual" aria-hidden="true">
+      <div class="login-visual">
+
+        <!-- Background grid -->
+        <div class="login-visual__grid"></div>
+
+        <!-- Brand header -->
+        <div class="login-visual__header">
+          <span class="badge badge--yellow">Live · Italia</span>
+          <span class="login-visual__version">v2.4.0</span>
+        </div>
+
+        <!-- Central stat showcase -->
+        <div class="login-visual__center">
+          <div class="login-visual__ring">
+            <span class="login-visual__ring-value">247</span>
+            <span class="login-visual__ring-label">spedizioni attive</span>
+          </div>
+        </div>
+
+        <!-- Stats grid -->
+        <div class="login-visual__stats">
+          <div class="login-visual__stat">
+            <span class="login-visual__stat-value">12</span>
+            <span class="login-visual__stat-label">In ritardo</span>
+            <span class="login-visual__stat-bar">
+              <span style="width:5%"></span>
+            </span>
+          </div>
+          <div class="login-visual__stat">
+            <span class="login-visual__stat-value">183</span>
+            <span class="login-visual__stat-label">In transito</span>
+            <span class="login-visual__stat-bar">
+              <span style="width:74%"></span>
+            </span>
+          </div>
+          <div class="login-visual__stat">
+            <span class="login-visual__stat-value">52</span>
+            <span class="login-visual__stat-label">Consegnate oggi</span>
+            <span class="login-visual__stat-bar login-visual__stat-bar--green">
+              <span style="width:21%"></span>
+            </span>
+          </div>
+          <div class="login-visual__stat">
+            <span class="login-visual__stat-value">€ 2.840</span>
+            <span class="login-visual__stat-label">Costo medio giornaliero</span>
+            <span class="login-visual__stat-bar login-visual__stat-bar--yellow">
+              <span style="width:58%"></span>
+            </span>
+          </div>
+        </div>
+
+        <!-- Cities ticker -->
+        <div class="login-visual__footer">
+          <div class="login-visual__ticker">
+            <span class="login-visual__ticker-dot login-visual__ticker-dot--green"></span>
+            <span>Milano · Roma · Torino · Bologna · Napoli · Firenze · Venezia · Bari · Palermo · Genova</span>
+          </div>
+        </div>
+
+      </div>
+    </div><!-- /login-split__visual -->
+
+  </div><!-- /login-split -->
+
+  <script>
+    /* ── Tab switching — usa .tabs__tab--active + .tabs__panel--active ── */
+    const tabs = document.querySelectorAll('.tabs__tab');
+
+    function activateTab(tab) {
+      tabs.forEach(t => {
+        t.classList.remove('tabs__tab--active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      tab.classList.add('tabs__tab--active');
+      tab.setAttribute('aria-selected', 'true');
+
+      document.querySelectorAll('.tabs__panel').forEach(p => {
+        p.hidden = true;
+        p.classList.remove('tabs__panel--active');
+      });
+      const panel = document.getElementById('panel-' + tab.dataset.tab);
+      if (panel) {
+        panel.hidden = false;
+        panel.classList.add('tabs__panel--active');
+      }
+    }
+
+    tabs.forEach(t => t.addEventListener('click', () => activateTab(t)));
+
+    /* ── Password toggle ───────────────────────────────────────────────── */
+    const pwToggle = document.getElementById('pwToggle');
+    const pwInput  = document.getElementById('password');
+    pwToggle.addEventListener('click', () => {
+      const shown = pwInput.type === 'text';
+      pwInput.type = shown ? 'password' : 'text';
+      pwToggle.setAttribute('aria-label', shown ? 'Mostra password' : 'Nascondi password');
+      pwToggle.style.color = shown ? '' : 'var(--jh-yellow)';
+    });
+
+    /* ── Form submit → dashboard ───────────────────────────────────────── */
+    const form       = document.getElementById('loginForm');
+    const submitBtn  = document.getElementById('submitBtn');
+    const submitText = submitBtn.querySelector('.login-submit__text');
+    const spinner    = submitBtn.querySelector('.login-submit__spinner');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitText.hidden  = true;
+      spinner.hidden     = false;
+      setTimeout(() => { window.location.href = 'dashboard.html'; }, 1200);
+    });
+  </script>
+</body>
+</html>

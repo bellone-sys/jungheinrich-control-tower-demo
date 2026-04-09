@@ -1,0 +1,1179 @@
+/*
+ * Jungheinrich Brand CSS
+ * Based on Jungheinrich Brand Design Guidelines (February 2024)
+ * Control Tower Demo
+ */
+
+/* ============================================================
+   1. DESIGN TOKENS — COLOR PALETTE
+   ============================================================ */
+
+:root {
+  /* --- Primary --- */
+  --jh-yellow:            #FFB900;   /* JH Yellow — primary brand colour */
+  --jh-yellow-75:         #FFCB5F;   /* JH Yellow 75% */
+  --jh-yellow-50:         #FFDD96;   /* JH Yellow 50% */
+  --jh-yellow-25:         #FCEDCF;   /* JH Yellow 25% */
+  --jh-yellow-dark:       #BA8800;   /* JH Yellow +25 Black */
+
+  /* --- Secondary / Neutrals --- */
+  --jh-black:             #000000;
+  --jh-dark-grey:         #3C464B;
+  --jh-dark-grey-80:      #636B6E;
+  --jh-dark-grey-40:      #B1B5B7;
+  --jh-light-grey:        #D7DADB;
+  --jh-light-grey-minus:  #EAEFF1;   /* Light Grey −10 Black */
+  --jh-white:             #FFFFFF;
+
+  /* --- Accent (use sparingly as marker colours) --- */
+  --jh-green:             #00573F;
+  --jh-turquoise:         #009697;
+  --jh-red:               #CC0000;
+
+  /* --- Semantic aliases --- */
+  --color-primary:        var(--jh-yellow);
+  --color-primary-hover:  var(--jh-yellow-dark);
+  --color-surface:        var(--jh-white);
+  --color-surface-alt:    var(--jh-light-grey-minus);
+  --color-surface-dark:   var(--jh-dark-grey);
+  --color-border:         var(--jh-light-grey);
+  --color-border-strong:  var(--jh-dark-grey-40);
+  --color-text:           var(--jh-black);
+  --color-text-secondary: var(--jh-dark-grey);
+  --color-text-muted:     var(--jh-dark-grey-80);
+  --color-text-on-yellow: var(--jh-black);
+  --color-text-on-dark:   var(--jh-white);
+  --color-success:        var(--jh-green);
+  --color-info:           var(--jh-turquoise);
+  --color-danger:         var(--jh-red);
+  --color-warning:        var(--jh-yellow);
+
+  /* ============================================================
+     2. DESIGN TOKENS — TYPOGRAPHY
+     ============================================================ */
+
+  /* Corporate typeface: Jungheinrich uses a geometric sans-serif.
+     Frutiger / Inter are the closest open alternatives. */
+  --font-family-base:     'Inter', 'Frutiger', 'Segoe UI', Arial, sans-serif;
+  --font-family-mono:     'JetBrains Mono', 'Consolas', monospace;
+
+  --font-size-xs:         0.75rem;   /*  12px */
+  --font-size-sm:         0.875rem;  /*  14px */
+  --font-size-base:       1rem;      /*  16px */
+  --font-size-md:         1.125rem;  /*  18px */
+  --font-size-lg:         1.25rem;   /*  20px */
+  --font-size-xl:         1.5rem;    /*  24px */
+  --font-size-2xl:        2rem;      /*  32px */
+  --font-size-3xl:        2.5rem;    /*  40px */
+  --font-size-4xl:        3rem;      /*  48px */
+
+  --font-weight-regular:  400;
+  --font-weight-medium:   500;
+  --font-weight-semibold: 600;
+  --font-weight-bold:     700;
+
+  --line-height-tight:    1.2;
+  --line-height-normal:   1.5;
+  --line-height-relaxed:  1.75;
+
+  --letter-spacing-tight: -0.01em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide:  0.04em;
+  --letter-spacing-caps:  0.08em;
+
+  /* ============================================================
+     3. DESIGN TOKENS — SPACING & LAYOUT
+     ============================================================ */
+
+  --space-1:   0.25rem;   /*  4px */
+  --space-2:   0.5rem;    /*  8px */
+  --space-3:   0.75rem;   /* 12px */
+  --space-4:   1rem;      /* 16px */
+  --space-5:   1.25rem;   /* 20px */
+  --space-6:   1.5rem;    /* 24px */
+  --space-8:   2rem;      /* 32px */
+  --space-10:  2.5rem;    /* 40px */
+  --space-12:  3rem;      /* 48px */
+  --space-16:  4rem;      /* 64px */
+  --space-20:  5rem;      /* 80px */
+  --space-24:  6rem;      /* 96px */
+
+  --container-max:        1440px;
+  --container-padding:    var(--space-6);
+
+  /* ============================================================
+     4. DESIGN TOKENS — BORDERS & SHADOWS
+     ============================================================ */
+
+  --radius-sm:   2px;
+  --radius-md:   4px;
+  --radius-lg:   8px;
+  --radius-xl:   12px;
+  --radius-full: 9999px;
+
+  --border-width:       1px;
+  --border-width-thick: 2px;
+
+  --shadow-sm:  0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md:  0 4px 12px rgba(0, 0, 0, 0.10);
+  --shadow-lg:  0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-xl:  0 16px 48px rgba(0, 0, 0, 0.14);
+
+  /* Yellow accent shadow — used on focus rings */
+  --shadow-focus: 0 0 0 3px rgba(255, 185, 0, 0.45);
+
+  /* ============================================================
+     5. DESIGN TOKENS — MOTION
+     ============================================================ */
+
+  --duration-fast:    100ms;
+  --duration-normal:  200ms;
+  --duration-slow:    350ms;
+  --ease-default:     cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-in:          cubic-bezier(0.4, 0, 1, 1);
+  --ease-out:         cubic-bezier(0, 0, 0.2, 1);
+}
+
+
+/* ============================================================
+   6. RESET & BASE
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+/* ============================================================
+   7. TYPOGRAPHY
+   ============================================================ */
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-text);
+}
+
+h1 { font-size: var(--font-size-4xl); }
+h2 { font-size: var(--font-size-3xl); }
+h3 { font-size: var(--font-size-2xl); }
+h4 { font-size: var(--font-size-xl); }
+h5 { font-size: var(--font-size-lg); }
+h6 { font-size: var(--font-size-md); }
+
+/* Headlines with JH Yellow accent — brand signature style */
+.headline-accent {
+  color: var(--jh-yellow);
+}
+
+.headline-underline {
+  position: relative;
+  display: inline-block;
+  padding-bottom: var(--space-2);
+}
+
+.headline-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--jh-yellow);
+}
+
+p {
+  line-height: var(--line-height-normal);
+  color: var(--color-text-secondary);
+}
+
+.text-xs     { font-size: var(--font-size-xs); }
+.text-sm     { font-size: var(--font-size-sm); }
+.text-base   { font-size: var(--font-size-base); }
+.text-md     { font-size: var(--font-size-md); }
+.text-lg     { font-size: var(--font-size-lg); }
+.text-xl     { font-size: var(--font-size-xl); }
+.text-2xl    { font-size: var(--font-size-2xl); }
+
+.text-bold      { font-weight: var(--font-weight-bold); }
+.text-semibold  { font-weight: var(--font-weight-semibold); }
+.text-medium    { font-weight: var(--font-weight-medium); }
+.text-regular   { font-weight: var(--font-weight-regular); }
+
+.text-muted     { color: var(--color-text-muted); }
+.text-secondary { color: var(--color-text-secondary); }
+.text-primary   { color: var(--jh-yellow); }
+.text-danger    { color: var(--jh-red); }
+.text-success   { color: var(--jh-green); }
+.text-info      { color: var(--jh-turquoise); }
+
+.text-uppercase {
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-caps);
+}
+
+/* Label / overline */
+.label {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-caps);
+  color: var(--color-text-muted);
+}
+
+
+/* ============================================================
+   8. LAYOUT
+   ============================================================ */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+}
+
+.container--narrow {
+  max-width: 960px;
+}
+
+.container--wide {
+  max-width: 1600px;
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.grid--2 { grid-template-columns: repeat(2, 1fr); }
+.grid--3 { grid-template-columns: repeat(3, 1fr); }
+.grid--4 { grid-template-columns: repeat(4, 1fr); }
+.grid--auto { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+
+/* Flex helpers */
+.flex        { display: flex; }
+.flex-center { display: flex; align-items: center; justify-content: center; }
+.flex-between{ display: flex; align-items: center; justify-content: space-between; }
+.flex-gap-2  { gap: var(--space-2); }
+.flex-gap-4  { gap: var(--space-4); }
+.flex-gap-6  { gap: var(--space-6); }
+
+@media (max-width: 1024px) {
+  .grid--4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .grid--2,
+  .grid--3,
+  .grid--4 { grid-template-columns: 1fr; }
+}
+
+
+/* ============================================================
+   9. NAVIGATION
+   ============================================================ */
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  padding-inline: var(--container-padding);
+  background-color: var(--jh-black);
+  color: var(--jh-white);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-lg);
+  color: var(--jh-white);
+}
+
+/* Yellow bar below navbar — signature JH brand stripe */
+.navbar::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--jh-yellow);
+}
+
+.navbar__nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.navbar__link {
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--jh-light-grey);
+  transition: color var(--duration-normal) var(--ease-default),
+              background-color var(--duration-normal) var(--ease-default);
+}
+
+.navbar__link:hover {
+  color: var(--jh-white);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.navbar__link--active {
+  color: var(--jh-yellow);
+  background-color: rgba(255, 185, 0, 0.12);
+}
+
+/* Sidebar */
+.sidebar {
+  width: 240px;
+  min-height: 100vh;
+  background-color: var(--jh-dark-grey);
+  padding: var(--space-6) 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.sidebar__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-6);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--jh-light-grey);
+  cursor: pointer;
+  transition: color var(--duration-normal) var(--ease-default),
+              background-color var(--duration-normal) var(--ease-default);
+  border-left: 3px solid transparent;
+}
+
+.sidebar__item:hover {
+  color: var(--jh-white);
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+.sidebar__item--active {
+  color: var(--jh-yellow);
+  border-left-color: var(--jh-yellow);
+  background-color: rgba(255, 185, 0, 0.10);
+}
+
+.sidebar__section-title {
+  padding: var(--space-4) var(--space-6) var(--space-2);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-caps);
+  color: var(--jh-dark-grey-80);
+}
+
+
+/* ============================================================
+   10. CARDS
+   ============================================================ */
+
+.card {
+  background-color: var(--color-surface);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--duration-normal) var(--ease-default);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.card--dark {
+  background-color: var(--jh-dark-grey);
+  border-color: transparent;
+  color: var(--jh-white);
+}
+
+.card--yellow {
+  background-color: var(--jh-yellow);
+  border-color: transparent;
+  color: var(--jh-black);
+}
+
+.card--surface {
+  background-color: var(--color-surface-alt);
+  border-color: transparent;
+}
+
+.card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+}
+
+.card__title {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  color: inherit;
+}
+
+.card__subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin-top: var(--space-1);
+}
+
+.card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: var(--border-width) solid var(--color-border);
+}
+
+/* KPI / Metric card */
+.card--kpi {
+  position: relative;
+  overflow: hidden;
+}
+
+.card--kpi::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background-color: var(--jh-yellow);
+}
+
+.kpi__value {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  line-height: 1;
+  color: var(--color-text);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.kpi__unit {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-muted);
+  margin-left: var(--space-1);
+}
+
+.kpi__delta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  margin-top: var(--space-2);
+}
+
+.kpi__delta--up   { color: var(--jh-green); }
+.kpi__delta--down { color: var(--jh-red); }
+
+
+/* ============================================================
+   11. BUTTONS
+   ============================================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  border: var(--border-width-thick) solid transparent;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color var(--duration-normal) var(--ease-default),
+              border-color var(--duration-normal) var(--ease-default),
+              color var(--duration-normal) var(--ease-default),
+              box-shadow var(--duration-normal) var(--ease-default);
+}
+
+.btn:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Primary — JH Yellow */
+.btn--primary {
+  background-color: var(--jh-yellow);
+  border-color: var(--jh-yellow);
+  color: var(--jh-black);
+}
+
+.btn--primary:hover {
+  background-color: var(--jh-yellow-dark);
+  border-color: var(--jh-yellow-dark);
+}
+
+/* Secondary — dark outlined */
+.btn--secondary {
+  background-color: transparent;
+  border-color: var(--jh-dark-grey);
+  color: var(--jh-dark-grey);
+}
+
+.btn--secondary:hover {
+  background-color: var(--jh-dark-grey);
+  color: var(--jh-white);
+}
+
+/* Ghost */
+.btn--ghost {
+  background-color: transparent;
+  border-color: transparent;
+  color: var(--color-text-secondary);
+}
+
+.btn--ghost:hover {
+  background-color: var(--color-surface-alt);
+  color: var(--color-text);
+}
+
+/* Danger */
+.btn--danger {
+  background-color: var(--jh-red);
+  border-color: var(--jh-red);
+  color: var(--jh-white);
+}
+
+.btn--danger:hover {
+  background-color: #a80000;
+  border-color: #a80000;
+}
+
+/* Sizes */
+.btn--sm {
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--font-size-xs);
+}
+
+.btn--lg {
+  padding: var(--space-4) var(--space-8);
+  font-size: var(--font-size-md);
+}
+
+.btn--icon {
+  padding: var(--space-3);
+  aspect-ratio: 1;
+}
+
+
+/* ============================================================
+   12. BADGES & STATUS INDICATORS
+   ============================================================ */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+  white-space: nowrap;
+}
+
+.badge--yellow  { background-color: var(--jh-yellow-25);  color: var(--jh-yellow-dark); }
+.badge--green   { background-color: rgba(0,87,63,0.12);   color: var(--jh-green); }
+.badge--red     { background-color: rgba(204,0,0,0.10);   color: var(--jh-red); }
+.badge--blue    { background-color: rgba(0,150,151,0.12); color: var(--jh-turquoise); }
+.badge--grey    { background-color: var(--jh-light-grey); color: var(--jh-dark-grey); }
+.badge--dark    { background-color: var(--jh-dark-grey);  color: var(--jh-white); }
+
+/* Status dot */
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.status::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.status--online::before  { background-color: var(--jh-green); }
+.status--warning::before {
+  background-color: var(--jh-yellow);
+  box-shadow: 0 0 0 3px var(--jh-yellow-25);
+  animation: pulse 1.6s infinite;
+}
+.status--error::before   { background-color: var(--jh-red); }
+.status--idle::before    { background-color: var(--jh-dark-grey-40); }
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255,185,0,0.5); }
+  50%       { box-shadow: 0 0 0 5px rgba(255,185,0,0); }
+}
+
+
+/* ============================================================
+   13. TABLE
+   ============================================================ */
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-sm);
+}
+
+.table thead {
+  background-color: var(--jh-dark-grey);
+  color: var(--jh-white);
+}
+
+.table th {
+  padding: var(--space-3) var(--space-4);
+  text-align: left;
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-caps);
+  white-space: nowrap;
+}
+
+/* Yellow accent on sorted column header */
+.table th[aria-sort] {
+  color: var(--jh-yellow);
+}
+
+.table td {
+  padding: var(--space-3) var(--space-4);
+  border-bottom: var(--border-width) solid var(--color-border);
+  color: var(--color-text-secondary);
+  vertical-align: middle;
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.table tbody tr:hover td {
+  background-color: var(--color-surface-alt);
+}
+
+/* Striped */
+.table--striped tbody tr:nth-child(even) td {
+  background-color: var(--jh-light-grey-minus);
+}
+
+.table--striped tbody tr:nth-child(even):hover td {
+  background-color: var(--jh-yellow-25);
+}
+
+
+/* ============================================================
+   14. FORM ELEMENTS
+   ============================================================ */
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.form-label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  background-color: var(--color-surface);
+  border: var(--border-width-thick) solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+  transition: border-color var(--duration-normal) var(--ease-default),
+              box-shadow var(--duration-normal) var(--ease-default);
+  outline: none;
+}
+
+.form-input:hover,
+.form-select:hover,
+.form-textarea:hover {
+  border-color: var(--jh-dark-grey-40);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: var(--jh-yellow);
+  box-shadow: var(--shadow-focus);
+}
+
+.form-input::placeholder {
+  color: var(--jh-dark-grey-40);
+}
+
+.form-hint {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.form-error {
+  font-size: var(--font-size-xs);
+  color: var(--jh-red);
+  font-weight: var(--font-weight-medium);
+}
+
+.form-input--error {
+  border-color: var(--jh-red);
+}
+
+.form-input--error:focus {
+  box-shadow: 0 0 0 3px rgba(204, 0, 0, 0.2);
+}
+
+/* Checkbox & Radio */
+.form-check {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  cursor: pointer;
+}
+
+.form-check__input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--jh-yellow);
+  cursor: pointer;
+}
+
+
+/* ============================================================
+   15. PROGRESS & CHARTS
+   ============================================================ */
+
+.progress {
+  width: 100%;
+  height: 8px;
+  background-color: var(--jh-light-grey);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.progress__bar {
+  height: 100%;
+  border-radius: var(--radius-full);
+  background-color: var(--jh-yellow);
+  transition: width var(--duration-slow) var(--ease-out);
+}
+
+.progress__bar--green    { background-color: var(--jh-green); }
+.progress__bar--red      { background-color: var(--jh-red); }
+.progress__bar--turquoise{ background-color: var(--jh-turquoise); }
+
+/* Gauge / Donut placeholder wrapper */
+.gauge-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gauge-label {
+  position: absolute;
+  text-align: center;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-xl);
+  color: var(--color-text);
+}
+
+
+/* ============================================================
+   16. ALERTS & NOTIFICATIONS
+   ============================================================ */
+
+.alert {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-lg);
+  border-left: 4px solid;
+  font-size: var(--font-size-sm);
+}
+
+.alert__icon {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.alert__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.alert__title {
+  font-weight: var(--font-weight-semibold);
+}
+
+.alert--info {
+  background-color: rgba(0,150,151,0.08);
+  border-color: var(--jh-turquoise);
+  color: var(--jh-dark-grey);
+}
+
+.alert--success {
+  background-color: rgba(0,87,63,0.08);
+  border-color: var(--jh-green);
+  color: var(--jh-dark-grey);
+}
+
+.alert--warning {
+  background-color: var(--jh-yellow-25);
+  border-color: var(--jh-yellow);
+  color: var(--jh-dark-grey);
+}
+
+.alert--danger {
+  background-color: rgba(204,0,0,0.08);
+  border-color: var(--jh-red);
+  color: var(--jh-dark-grey);
+}
+
+
+/* ============================================================
+   17. TABS
+   ============================================================ */
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.tabs__nav {
+  display: flex;
+  gap: 0;
+  border-bottom: 2px solid var(--color-border);
+}
+
+.tabs__tab {
+  padding: var(--space-3) var(--space-6);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  border: none;
+  background: none;
+  position: relative;
+  transition: color var(--duration-normal) var(--ease-default);
+}
+
+.tabs__tab::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--jh-yellow);
+  transform: scaleX(0);
+  transition: transform var(--duration-normal) var(--ease-default);
+}
+
+.tabs__tab:hover {
+  color: var(--color-text);
+}
+
+.tabs__tab--active {
+  color: var(--color-text);
+  font-weight: var(--font-weight-semibold);
+}
+
+.tabs__tab--active::after {
+  transform: scaleX(1);
+}
+
+.tabs__panel {
+  padding: var(--space-6) 0;
+  display: none;
+}
+
+.tabs__panel--active {
+  display: block;
+}
+
+
+/* ============================================================
+   18. MAP / LOCATION WIDGETS
+   ============================================================ */
+
+.map-container {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background-color: var(--jh-light-grey-minus);
+  border: var(--border-width) solid var(--color-border);
+  position: relative;
+}
+
+.map-overlay {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.map-marker {
+  width: 32px;
+  height: 32px;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.map-marker--yellow { background-color: var(--jh-yellow); }
+.map-marker--dark   { background-color: var(--jh-dark-grey); }
+.map-marker--green  { background-color: var(--jh-green); }
+.map-marker--red    { background-color: var(--jh-red); }
+
+
+/* ============================================================
+   19. UTILITY CLASSES
+   ============================================================ */
+
+/* Spacing */
+.mt-2 { margin-top: var(--space-2); }
+.mt-4 { margin-top: var(--space-4); }
+.mt-6 { margin-top: var(--space-6); }
+.mt-8 { margin-top: var(--space-8); }
+.mb-2 { margin-bottom: var(--space-2); }
+.mb-4 { margin-bottom: var(--space-4); }
+.mb-6 { margin-bottom: var(--space-6); }
+.mb-8 { margin-bottom: var(--space-8); }
+
+.p-4  { padding: var(--space-4); }
+.p-6  { padding: var(--space-6); }
+.p-8  { padding: var(--space-8); }
+
+/* Backgrounds */
+.bg-yellow     { background-color: var(--jh-yellow); }
+.bg-yellow-25  { background-color: var(--jh-yellow-25); }
+.bg-dark       { background-color: var(--jh-black); }
+.bg-dark-grey  { background-color: var(--jh-dark-grey); }
+.bg-light-grey { background-color: var(--jh-light-grey-minus); }
+.bg-surface    { background-color: var(--color-surface); }
+
+/* Borders */
+.border         { border: var(--border-width) solid var(--color-border); }
+.border-yellow  { border-color: var(--jh-yellow) !important; }
+.rounded        { border-radius: var(--radius-md); }
+.rounded-lg     { border-radius: var(--radius-lg); }
+.rounded-full   { border-radius: var(--radius-full); }
+
+/* Display */
+.hidden { display: none; }
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Divider */
+.divider {
+  width: 100%;
+  height: var(--border-width);
+  background-color: var(--color-border);
+}
+
+.divider--yellow {
+  height: 3px;
+  background-color: var(--jh-yellow);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar        { width: 6px; height: 6px; }
+::-webkit-scrollbar-track  { background: var(--color-surface-alt); }
+::-webkit-scrollbar-thumb  { background: var(--jh-dark-grey-40); border-radius: var(--radius-full); }
+::-webkit-scrollbar-thumb:hover { background: var(--jh-dark-grey-80); }
+
+
+/* ============================================================
+   20. PAGE LAYOUT — CONTROL TOWER SHELL
+   ============================================================ */
+
+.app-shell {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.app-body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.main-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-8);
+  background-color: var(--color-surface-alt);
+}
+
+.page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+  padding-bottom: var(--space-6);
+  border-bottom: var(--border-width) solid var(--color-border);
+}
+
+.page-title {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-text);
+  position: relative;
+  padding-left: var(--space-4);
+}
+
+/* Vertical yellow bar beside page title */
+.page-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background-color: var(--jh-yellow);
+  border-radius: var(--radius-full);
+}
+
+.page-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+/* Section */
+.section {
+  margin-bottom: var(--space-8);
+}
+
+.section__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-5);
+}
+
+.section__title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+}
