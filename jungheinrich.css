@@ -105,19 +105,19 @@
      4. DESIGN TOKENS — BORDERS & SHADOWS
      ============================================================ */
 
-  --radius-sm:   2px;
-  --radius-md:   4px;
-  --radius-lg:   8px;
-  --radius-xl:   12px;
+  --radius-sm:   3px;
+  --radius-md:   6px;
+  --radius-lg:   10px;
+  --radius-xl:   14px;
   --radius-full: 9999px;
 
   --border-width:       1px;
   --border-width-thick: 2px;
 
-  --shadow-sm:  0 1px 3px rgba(0, 0, 0, 0.08);
-  --shadow-md:  0 4px 12px rgba(0, 0, 0, 0.10);
-  --shadow-lg:  0 8px 24px rgba(0, 0, 0, 0.12);
-  --shadow-xl:  0 16px 48px rgba(0, 0, 0, 0.14);
+  --shadow-sm:  0 1px 2px rgba(0, 0, 0, 0.05), 0 1px 4px rgba(0, 0, 0, 0.06);
+  --shadow-md:  0 2px 8px rgba(0, 0, 0, 0.07), 0 4px 16px rgba(0, 0, 0, 0.07);
+  --shadow-lg:  0 8px 24px rgba(0, 0, 0, 0.09), 0 2px 6px rgba(0, 0, 0, 0.06);
+  --shadow-xl:  0 20px 48px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.08);
 
   /* Yellow accent shadow — used on focus rings */
   --shadow-focus: 0 0 0 3px rgba(255, 185, 0, 0.45);
@@ -126,9 +126,9 @@
      5. DESIGN TOKENS — MOTION
      ============================================================ */
 
-  --duration-fast:    100ms;
-  --duration-normal:  200ms;
-  --duration-slow:    350ms;
+  --duration-fast:    120ms;
+  --duration-normal:  220ms;
+  --duration-slow:    380ms;
   --ease-default:     cubic-bezier(0.4, 0, 0.2, 1);
   --ease-in:          cubic-bezier(0.4, 0, 1, 1);
   --ease-out:         cubic-bezier(0, 0, 0.2, 1);
@@ -259,10 +259,10 @@ p {
 
 /* Label / overline */
 .label {
-  font-size: var(--font-size-xs);
+  font-size: 0.68rem;
   font-weight: var(--font-weight-semibold);
   text-transform: uppercase;
-  letter-spacing: var(--letter-spacing-caps);
+  letter-spacing: 0.09em;
   color: var(--color-text-muted);
 }
 
@@ -383,45 +383,49 @@ p {
 .sidebar {
   width: 240px;
   min-height: 100vh;
-  background-color: var(--jh-dark-grey);
-  padding: var(--space-6) 0;
+  background-color: #1C2127;
+  padding: var(--space-5) 0;
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
+  gap: 2px;
 }
 
 .sidebar__item {
   display: flex;
   align-items: center;
   gap: var(--space-3);
-  padding: var(--space-3) var(--space-6);
+  padding: 9px var(--space-5);
+  margin: 0 var(--space-2);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
-  color: var(--jh-light-grey);
+  color: rgba(255, 255, 255, 0.55);
   cursor: pointer;
+  border-radius: var(--radius-md);
   transition: color var(--duration-normal) var(--ease-default),
               background-color var(--duration-normal) var(--ease-default);
-  border-left: 3px solid transparent;
+  border-left: 2px solid transparent;
+  text-decoration: none;
 }
 
 .sidebar__item:hover {
   color: var(--jh-white);
-  background-color: rgba(255, 255, 255, 0.06);
+  background-color: rgba(255, 255, 255, 0.07);
 }
 
 .sidebar__item--active {
-  color: var(--jh-yellow);
+  color: var(--jh-white);
   border-left-color: var(--jh-yellow);
-  background-color: rgba(255, 185, 0, 0.10);
+  background-color: rgba(255, 185, 0, 0.12);
+  font-weight: var(--font-weight-semibold);
 }
 
 .sidebar__section-title {
-  padding: var(--space-4) var(--space-6) var(--space-2);
-  font-size: var(--font-size-xs);
+  padding: var(--space-4) var(--space-5) var(--space-1);
+  font-size: 0.65rem;
   font-weight: var(--font-weight-semibold);
   text-transform: uppercase;
-  letter-spacing: var(--letter-spacing-caps);
-  color: var(--jh-dark-grey-80);
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.25);
 }
 
 
@@ -431,11 +435,12 @@ p {
 
 .card {
   background-color: var(--color-surface);
-  border: var(--border-width) solid var(--color-border);
+  border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: var(--radius-lg);
   padding: var(--space-6);
   box-shadow: var(--shadow-sm);
-  transition: box-shadow var(--duration-normal) var(--ease-default);
+  transition: box-shadow var(--duration-normal) var(--ease-default),
+              transform var(--duration-normal) var(--ease-default);
 }
 
 .card:hover {
@@ -510,11 +515,11 @@ p {
 }
 
 .kpi__value {
-  font-size: var(--font-size-3xl);
-  font-weight: var(--font-weight-bold);
+  font-size: 2.4rem;
+  font-weight: 800;
   line-height: 1;
   color: var(--color-text);
-  letter-spacing: var(--letter-spacing-tight);
+  letter-spacing: -0.03em;
 }
 
 .kpi__unit {
@@ -599,12 +604,13 @@ p {
 /* Ghost */
 .btn--ghost {
   background-color: transparent;
-  border-color: transparent;
+  border-color: var(--jh-light-grey);
   color: var(--color-text-secondary);
 }
 
 .btn--ghost:hover {
   background-color: var(--color-surface-alt);
+  border-color: var(--jh-dark-grey-40);
   color: var(--color-text);
 }
 
@@ -711,18 +717,19 @@ p {
 }
 
 .table thead {
-  background-color: var(--jh-dark-grey);
+  background-color: #1C2127;
   color: var(--jh-white);
 }
 
 .table th {
-  padding: var(--space-3) var(--space-4);
+  padding: 11px var(--space-4);
   text-align: left;
   font-weight: var(--font-weight-semibold);
-  font-size: var(--font-size-xs);
+  font-size: 0.68rem;
   text-transform: uppercase;
-  letter-spacing: var(--letter-spacing-caps);
+  letter-spacing: 0.09em;
   white-space: nowrap;
+  color: rgba(255,255,255,0.6);
 }
 
 /* Yellow accent on sorted column header */
@@ -731,8 +738,8 @@ p {
 }
 
 .table td {
-  padding: var(--space-3) var(--space-4);
-  border-bottom: var(--border-width) solid var(--color-border);
+  padding: 12px var(--space-4);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
   color: var(--color-text-secondary);
   vertical-align: middle;
 }
@@ -742,7 +749,7 @@ p {
 }
 
 .table tbody tr:hover td {
-  background-color: var(--color-surface-alt);
+  background-color: rgba(255, 185, 0, 0.04);
 }
 
 /* Striped */

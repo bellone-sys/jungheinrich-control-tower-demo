@@ -216,16 +216,17 @@
   font-family: var(--font-family-base);
   display: flex; flex-direction: column;
   min-height: 100vh;
-  background: var(--jh-light-grey-minus);
+  background: #F0F2F5;
 }
 
 .app-header {
   position: fixed; top: 0; left: 0; right: 0;
   height: 60px;
-  background: var(--jh-black);
-  border-bottom: 2px solid var(--jh-yellow);
+  background: #111418;
+  border-bottom: 1px solid rgba(255, 185, 0, 0.22);
   display: flex; align-items: center;
   z-index: 100; padding: 0 20px; gap: 0;
+  box-shadow: 0 1px 0 rgba(255,185,0,0.06), 0 2px 12px rgba(0,0,0,0.25);
 }
 
 .app-header__logo {
@@ -264,7 +265,7 @@
 .app-header__notif-dot {
   position: absolute; top: 6px; right: 6px;
   width: 7px; height: 7px; background: var(--jh-red);
-  border-radius: 50%; border: 1.5px solid var(--jh-black);
+  border-radius: 50%; border: 1.5px solid #111418;
 }
 
 .app-header__avatar-btn {
@@ -438,7 +439,7 @@
 .kpi-card--green::before,
 .kpi-card--blue::before {
   top: 0; left: 0; right: 0; bottom: auto;
-  width: 100%; height: 3px;
+  width: 100%; height: 4px;
 }
 .kpi-card--yellow::before { background: var(--jh-yellow); }
 .kpi-card--red::before    { background: var(--jh-red); }
@@ -448,16 +449,16 @@
 /* KPI card header (label + icon) */
 .kpi-card__header {
   display: flex; align-items: center; justify-content: space-between;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 .kpi-card__icon {
-  width: 32px; height: 32px; border-radius: 8px;
+  width: 34px; height: 34px; border-radius: 9px;
   display: flex; align-items: center; justify-content: center; flex-shrink: 0;
 }
 .kpi-card__icon--yellow { background: var(--jh-yellow-25);        color: var(--jh-yellow-dark); }
-.kpi-card__icon--red    { background: rgba(204,0,0,0.08);          color: var(--jh-red); }
-.kpi-card__icon--green  { background: rgba(0,87,63,0.08);          color: var(--jh-green); }
-.kpi-card__icon--blue   { background: rgba(0,150,151,0.08);        color: var(--jh-turquoise); }
+.kpi-card__icon--red    { background: rgba(204,0,0,0.09);          color: var(--jh-red); }
+.kpi-card__icon--green  { background: rgba(0,87,63,0.09);          color: var(--jh-green); }
+.kpi-card__icon--blue   { background: rgba(0,150,151,0.09);        color: var(--jh-turquoise); }
 
 /* ════════════════════════════════════════════════════════════════════════
    DASHBOARD GRID + TABLE CELL EXTRAS
